@@ -4,7 +4,7 @@ class Scrolled {
         this.right = getComputedStyle(this.element).paddingRight;
     }
 
-    scrollOverflow() {
+    _scrollOverflow() {
         let style = this.element.style;
         let overflow = style.overflow || getComputedStyle(this.element).overflow;
         if (overflow !== 'scroll') {
@@ -13,7 +13,7 @@ class Scrolled {
         }
     }
 
-    hiddenOverflow() {
+    _hiddenOverflow() {
         let style = this.element.style;
         let overflow = style.overflow || getComputedStyle(this.element).overflow;
         if (overflow === 'scroll') {
@@ -23,9 +23,9 @@ class Scrolled {
     }
 
     init() {
-        this.element.addEventListener('mouseover', this.scrollOverflow.bind(this));
-        this.element.addEventListener('touchstart', this.scrollOverflow.bind(this));
-        this.element.addEventListener('mouseout', this.hiddenOverflow.bind(this));
-        this.element.addEventListener('touchend', this.hiddenOverflow.bind(this));
+        this.element.addEventListener('mouseover', this._scrollOverflow.bind(this));
+        this.element.addEventListener('touchstart', this._scrollOverflow.bind(this));
+        this.element.addEventListener('mouseout', this._hiddenOverflow.bind(this));
+        this.element.addEventListener('touchend', this._hiddenOverflow.bind(this));
     }
 }
