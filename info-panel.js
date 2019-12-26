@@ -228,7 +228,7 @@ const data = [
     }
 ]
 
-new FeedbackPanel('.feedbackpanel', data, {
+new InfoPanel('.feedbackpanel', data, {
     updatedElem: {
         img: ['img'],
         text: ['name', 'signature', 'prof', 'text']
